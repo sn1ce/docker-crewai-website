@@ -1,0 +1,13 @@
+services:
+  crewai-panel:
+    build: .
+    container_name: crewai-panel
+    ports:
+      - "4200:8000"
+    volumes:
+      - /home/test/crewai/website_builder:/crewai/website_builder
+      - /home/test/crewai/output:/crewai/output
+    environment:
+      - CREWAI_DIR=/crewai/website_builder
+      - OUTPUT_DIR=/crewai/output
+    restart: unless-stopped
